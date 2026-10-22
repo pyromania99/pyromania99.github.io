@@ -19,6 +19,7 @@
   --sim-soft: #fdece5;
   --ana-soft: #efedf8;
   --pub-soft: #e7f4ee;
+  /* Three families, one role each: serif = headings and numbers, sans = body and UI, mono = labels and metadata */
   --serif: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
@@ -209,7 +210,7 @@ main { min-height: 60vh; }
 .row:last-child { border-bottom: 0; }
 .row.has-media { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 56px; align-items: center; }
 .row-label { font: 600 0.78rem/1 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin: 0 0 12px; }
-.row-title { font: 700 clamp(2rem, 4vw, 2.8rem)/1.05 var(--sans); letter-spacing: -0.03em; margin: 0 0 16px; }
+.row-title { font: 700 clamp(2rem, 4vw, 2.8rem)/1.1 var(--serif); letter-spacing: -0.01em; margin: 0 0 16px; }
 .row-text p:not(.row-label) { margin: 0 0 20px; max-width: 54ch; font-size: 1.04rem; line-height: 1.65; color: var(--ink-2); }
 .row-points { list-style: none; margin: 0 0 24px; padding: 0; font: 600 0.8rem/1.9 var(--mono); letter-spacing: 0.04em; text-transform: uppercase; }
 .row-points li::before { content: "— "; color: var(--ink-3); }
@@ -239,7 +240,7 @@ main { min-height: 60vh; }
 .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: stretch; }
 .icard { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 24px; }
 .icard .row-label { margin-bottom: 10px; }
-.icard h2 { font: 700 1.55rem/1.15 var(--sans); letter-spacing: -0.02em; margin: 0 0 10px; }
+.icard h2 { font: 700 1.55rem/1.2 var(--serif); letter-spacing: -0.01em; margin: 0 0 10px; }
 .icard p:not(.row-label):not(.fill) { margin: 0 0 16px; font-size: 0.97rem; line-height: 1.6; color: var(--ink-2); }
 .icard .row-link { margin-top: auto; align-self: flex-start; }
 .icard .fill { margin-top: 14px !important; }
