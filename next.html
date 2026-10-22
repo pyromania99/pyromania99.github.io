@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Next · Aniketh Parkala</title>
+<meta name="description" content="What is not yet shown, and where the work is heading.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Aniketh Parkala</a>
+    <a href="index.html">Home</a><a href="skills.html">Skills</a><a href="research.html">Research</a><a href="interests.html">Interests</a><a href="evidence.html">Evidence</a><a href="next.html" aria-current="page">Next</a><a href="about.html">About</a>
+    <button class="theme" id="theme" type="button" aria-label="Toggle light and dark theme">Theme</button>
+  </div>
+</header>
+
+<main id="main">
+<section id="open">
+  <div class="wrap">
+    <h1 class="page-title">What I haven’t shown yet</h1>
+    <p class="sub">Each of these has a specific test planned. They are my next experiments.</p>
+    <div class="cols">
+      <div class="card">
+        <h3>On hardware</h3>
+        <ul>
+          <li><strong>The adaptive lag compensation has not flown.</strong> On hardware its measurement signal does not yet match the lag it is meant to cancel, so it needs a better-filtered signal first.</li>
+          <li><strong>The estimator fix is untested on hardware above 15.7 rad/s.</strong> The vehicle has flown just below it.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>On the larger claim</h3>
+        <ul>
+          <li><strong>Motor-loss survival is open.</strong> In simulation no spin rate survives a single rotor loss with an allocator that isn’t told; It is left to see if the wings will save it in simulation and hardware.</li>
+          <li><strong>No head-to-head</strong> yet against the leading published method for lag compensation on a spinning quadrotor.</li>
+          <li><strong>Lift and power rest on a few short trials</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="direction">
+  <div class="wrap">
+    <h2>Where I’m taking this</h2>
+    <p class="sub">The pattern in my work is the same one I want to apply next: choose the mechanism and the control law with each other in mind.</p>
+    <div class="cols">
+      <div class="card">
+        <h3>A universal limb</h3>
+        <p>Ground robots whose limbs do both jobs, locomotion and manipulation, inspired in part by how an octopus arm grips objects of any size. Household tasks such as dishes, laundry or fetching something from the fridge are the target. Most of the field is heading toward humanoids; I want to come at it from the limb.</p>
+      </div>
+      <div class="card">
+        <h3>Interpretable learned control</h3>
+        <p>I’m adding learned locomotion to my toolkit, with one aim: combine learning with my control background so the learned controller stays nonlinear and interpretable, and I can still reason about it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Aniketh Parkala · Hyderabad, India · <a href="mailto:aniketh.parkala@research.iiit.ac.in">aniketh.parkala@research.iiit.ac.in</a></p>
+    <p>Numbers on this site come from my MS thesis (December 2026 draft).</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

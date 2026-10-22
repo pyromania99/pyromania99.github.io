@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skills · Aniketh Parkala</title>
+<meta name="description" content="Technical skills: classical control, Lyapunov and backstepping, disturbance analysis, PX4 firmware, hardware prototyping.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Aniketh Parkala</a>
+    <a href="index.html">Home</a><a href="skills.html" aria-current="page">Skills</a><a href="research.html">Research</a><a href="interests.html">Interests</a><a href="evidence.html">Evidence</a><a href="next.html">Next</a><a href="about.html">About</a>
+    <button class="theme" id="theme" type="button" aria-label="Toggle light and dark theme">Theme</button>
+  </div>
+</header>
+
+<main id="main">
+<section id="skills">
+  <div class="wrap">
+    <h1 class="page-title">Technical skills</h1>
+    <p class="sub">Five areas I can go deep on. Tags show how the work was validated: <span class="tag hw">Hardware</span> <span class="tag sim">Simulation</span> <span class="tag ana">Analysis</span> <span class="tag pub">Published</span></p>
+
+    <article class="strength" id="classical">
+      <div>
+        <h3>Classical control design</h3>
+        <div class="tags"><span class="tag hw">Hardware</span><span class="tag ana">Analysis</span></div>
+      </div>
+      <ul>
+        <li>Design and tuning of cascaded position, attitude and rate loops, using pole placement and gain scheduling, for a vehicle with strong gyroscopic coupling.</li>
+        <li>Showed why a standard PD cascade cannot hold a fast spin, and designed a feedback-linearising controller that cancels the coupling. It flies on hardware.</li>
+        <li>Frequency-domain analysis of actuator delay and motor lag. On a spinning body a delay rotates the command direction, so phase error, not lost gain, is what limits the loop.</li>
+      </ul>
+    </article>
+
+    <article class="strength" id="lyapunov">
+      <div>
+        <h3>Lyapunov and backstepping controllers</h3>
+        <div class="tags"><span class="tag ana">Analysis</span><span class="tag sim">Simulation</span></div>
+      </div>
+      <ul>
+        <li>Stability proofs for a full position, attitude and rate cascade on SO(3), without small-angle approximation.</li>
+        <li>Backstepping design for the thrust direction, with the cross terms between stages cancelling by construction.</li>
+        <li>An adaptive law that compensates actuator lag without needing to know the lag, with a stability argument, tested in simulation. I also checked which effects my own proofs do not cover.</li>
+        <li>The Lyapunov and backstepping designs are analysis only; the controller I flew uses feedback linearisation.</li>
+      </ul>
+    </article>
+
+    <article class="strength" id="disturbance">
+      <div>
+        <h3>Disturbance analysis</h3>
+        <div class="tags"><span class="tag ana">Analysis</span><span class="tag sim">Simulation</span></div>
+      </div>
+      <ul>
+        <li>Classify disturbances by whether they rotate with the vehicle (centre-of-gravity offset, rotor mismatch) or stay fixed in the world (wind), and derive their effect in closed form. Results matched a full nonlinear simulation.</li>
+        <li>Analysed a single rotor failure as a disturbance: the authority that remains and the steady coning angle the vehicle settles into.</li>
+        <li>Identified when a disturbance cannot be told apart from a command by filtering, and what that means for adaptive control.</li>
+      </ul>
+    </article>
+
+    <article class="strength" id="px4">
+      <div>
+        <h3>PX4 firmware and edge-style architecture</h3>
+        <div class="tags"><span class="tag hw">Hardware</span><span class="tag sim">Simulation</span></div>
+      </div>
+      <ul>
+        <li>The whole controller runs as a module on the flight controller, with no companion computer. I chose this over the usual route for lower weight, cost and power, and so anyone already flying PX4 can use it.</li>
+        <li>Found and fixed a bug in PX4’s attitude estimator that appears at high rotation rates, and added a regression test.</li>
+        <li>Custom control allocation, pilot modes that work while the vehicle spins, and rotor-failure injection.</li>
+        <li>High-rate flight logging, timing and latency analysis, and PX4 simulation in lockstep with Isaac Sim.</li>
+      </ul>
+    </article>
+
+    <article class="strength" id="hardware">
+      <div>
+        <h3>Hardware design, development and prototyping</h3>
+        <div class="tags"><span class="tag hw">Hardware</span><span class="tag pub">Published</span></div>
+      </div>
+      <ul>
+        <li>Designed and built the quadrotor airframe in two configurations, with 3D-printed motor mounts and a carbon-fibre structure.</li>
+        <li>Sized wings for low-Reynolds-number flow using blade-element theory, CFD and XFLR5, with a custom airfoil. Built them and flew them.</li>
+        <li>Tuned the spin rate mechanically by tilting motors. A simple model predicted the next build’s spin (15.2 rad/s predicted, 14.6–15.5 flown).</li>
+        <li>Instrumentation: motion capture, an external-vision relay, rotor-speed telemetry and a spin test rig.</li>
+        <li>Tools: Fusion 360, PCB design, 3D printing. Also the mechanical structure for a CanSat that placed 4th worldwide at design review.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Aniketh Parkala · Hyderabad, India · <a href="mailto:aniketh.parkala@research.iiit.ac.in">aniketh.parkala@research.iiit.ac.in</a></p>
+    <p>Numbers on this site come from my MS thesis (December 2026 draft).</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

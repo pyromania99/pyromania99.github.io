@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aniketh Parkala · Control built around the mechanism</title>
+<meta name="description" content="Aniketh Parkala, MS by Research in Robotics at IIIT Hyderabad. Spinning quadrotors, lag-aware control, PX4 estimation, and mechanism–controller co-design.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Aniketh Parkala</a>
+    <a href="index.html" aria-current="page">Home</a><a href="skills.html">Skills</a><a href="research.html">Research</a><a href="interests.html">Interests</a><a href="evidence.html">Evidence</a><a href="next.html">Next</a><a href="about.html">About</a>
+    <button class="theme" id="theme" type="button" aria-label="Toggle light and dark theme">Theme</button>
+  </div>
+</header>
+
+<main id="main">
+<div class="hero-bg" id="top">
+<div class="wrap hero">
+  <p class="eyebrow">MS by Research · Robotics · IIIT Hyderabad</p>
+  <h1>Control built around the mechanism.</h1>
+  <p class="lede">I enjoy experimental robotics at the edge of what is currently feasible, especially where the control and the platform are designed together.</p>
+  <ul class="links">
+    <li><a class="btn" href="CV_PHD_.pdf">CV (PDF)</a></li>
+    <li><a class="btn" href="https://doi.org/10.1109/ICUAS69441.2026.11598692">ICUAS 2026 paper</a></li>
+    <li><a class="btn" href="https://pyromania99.github.io/Spinning-drone-Lift-augumentation/">Project page</a></li>
+    <li><a class="btn" href="https://github.com/pyromania99/spinning-quadrotor-hover">Code</a></li>
+  </ul>
+
+</div>
+</div>
+<div class="wrap stats-wrap">
+  <ul class="stats" aria-label="Headline results">
+    <li class="stat"><b>22%</b><span>of the vehicle’s weight carried by passive wings in hover; mean motor command down 15–18%.</span><span class="tag hw">Hardware</span></li>
+    <li class="stat"><b>15 rad/s</b><span>controlled spinning hover on a PX4 flight controller, about 50 s, ~1° tilt error.</span><span class="tag hw">Hardware</span></li>
+    <li class="stat"><b>29.5 rad/s</b><span>hover held with a 30 ms rotor lag, PX4 and its estimator in the loop.</span><span class="tag sim">Simulation</span></li>
+    <li class="stat"><b>68° → 0.8°</b><span>published-attitude error at 20 rad/s after I fixed a frame error in PX4’s estimator.</span><span class="tag sim">Simulation</span></li>
+  </ul>
+</div>
+<section class="rows">
+  <div class="wrap">
+    <article class="row has-media">
+      <div class="row-text">
+        <p class="row-label">2023 – 2026</p>
+        <h2 class="row-title">Thesis</h2>
+        <p>A quadrotor that spins on purpose. Treating the whole vehicle as one large, controlled propeller lets it draw on the efficiency of larger rotors, and aims at fault-tolerant flight at a lower spin rate.</p>
+        <ul class="row-points">
+          <li>ICUAS 2026 Best Paper Finalist</li>
+          <li>Wings carry 22% of the weight in hover</li>
+          <li>Controlled hover at ~15 rad/s on hardware</li>
+        </ul>
+        <a class="row-link" href="research.html">See the research →</a>
+      </div>
+      <figure class="clip">
+        <img src="media/config2-symmetric.gif" alt="One second of flight: the symmetric four-wing quadrotor spinning in hover, red wings blurring as it turns." width="640" height="320">
+        <figcaption>Symmetric four-wing configuration in spinning hover.</figcaption>
+      </figure>
+    </article>
+    <article class="row has-media media-left">
+      <figure class="clip limb">
+        <img src="media/octolimb-flip.png" alt="Illustration of an octopus with its arms curling outward, the inspiration for a limb that can grip objects of many sizes." width="1400" height="1096">
+        <figcaption>Illustration: Farimah Khavarinezhad, from Della Santina, Duriez &amp; Rus, “Model-Based Control of Soft Robots”.</figcaption>
+      </figure>
+      <div class="row-text">
+        <p class="row-label">2027 →</p>
+        <h2 class="row-title">Next</h2>
+        <p>Having explored what this platform offers, I want to bring the same mindset to the ground: a universal limb that can both locomote and manipulate, with the control structure designed around that mechanism.</p>
+        <a class="row-link" href="next.html">Where I’m taking this →</a>
+      </div>
+    </article>
+    <article class="row row-center">
+      <div class="row-text">
+        <p class="row-label">Method</p>
+        <h2 class="row-title">Approach</h2>
+        <p>Nonlinear control with a classical mindset, applied to interpreting and designing RL-based controllers with a grounded understanding.</p>
+        <a class="row-link" href="skills.html">Technical skills →</a>
+      </div>
+    </article>
+  </div>
+</section>
+<section class="explore-wrap">
+  <div class="wrap">
+    <h2>Explore</h2>
+    <ul class="explore">
+      <li><a href="skills.html"><strong>Skills</strong><span>Control design, Lyapunov and backstepping, disturbance analysis, PX4 firmware, hardware prototyping.</span></a></li>
+      <li><a href="research.html"><strong>Research</strong><span>How the spinning-quadrotor work unfolded, and the spin rates reached on hardware and in simulation.</span></a></li>
+      <li><a href="interests.html"><strong>Interests</strong><span>Robots, research and ideas shaping the limb I want to build.</span></a></li>
+      <li><a href="evidence.html"><strong>Evidence</strong><span>The headline numbers and how each was validated.</span></a></li>
+      <li><a href="next.html"><strong>Next</strong><span>What I haven’t shown yet, and where I’m taking this.</span></a></li>
+      <li><a href="about.html"><strong>About</strong><span>Education, publication, teaching, awards and tools.</span></a></li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Aniketh Parkala · Hyderabad, India · <a href="mailto:aniketh.parkala@research.iiit.ac.in">aniketh.parkala@research.iiit.ac.in</a></p>
+    <p>Numbers on this site come from my MS thesis (December 2026 draft).</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

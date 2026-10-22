@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evidence · Aniketh Parkala</title>
+<meta name="description" content="Headline results and how each was validated: hardware, simulation, analysis or published.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Aniketh Parkala</a>
+    <a href="index.html">Home</a><a href="skills.html">Skills</a><a href="research.html">Research</a><a href="interests.html">Interests</a><a href="evidence.html" aria-current="page">Evidence</a><a href="next.html">Next</a><a href="about.html">About</a>
+    <button class="theme" id="theme" type="button" aria-label="Toggle light and dark theme">Theme</button>
+  </div>
+</header>
+
+<main id="main">
+<section id="evidence">
+  <div class="wrap">
+    <h1 class="page-title">Evidence ledger</h1>
+    <p class="sub">The headline numbers and what each was measured on.</p>
+    <div class="filters" role="group" aria-label="Filter by validation level">
+      <button type="button" data-f="all" aria-pressed="true">All</button>
+      <button type="button" data-f="hw" aria-pressed="false">Hardware</button>
+      <button type="button" data-f="sim" aria-pressed="false">Simulation</button>
+      <button type="button" data-f="ana" aria-pressed="false">Analysis</button>
+      <button type="button" data-f="pub" aria-pressed="false">Published</button>
+    </div>
+    <div class="tablewrap">
+      <table id="ledger">
+        <thead><tr><th>Result</th><th>Level</th></tr></thead>
+        <tbody>
+          <tr data-l="hw pub"><td>Passive wings carry <b>22.3%</b> of the vehicle’s weight in hover; mean motor command down <b>18%</b> (four wings) and <b>15%</b> (two wings).</td><td><span class="tag hw">Hardware</span> <span class="tag pub">Published</span></td></tr>
+          <tr data-l="sim"><td>Wing lift predicted by blade-element simulation 5.27 N, by CFD 4.50 N, measured in flight about 2.1 N.</td><td><span class="tag sim">Simulation</span> <span class="tag hw">Hardware</span></td></tr>
+          <tr data-l="sim"><td>PX4 estimator filter rate: above 6.5 rad/s, 3 of 3 flights were clean at the faster rate and 23 of 23 diverged at the stock rate.</td><td><span class="tag sim">Simulation</span></td></tr>
+          <tr data-l="sim ana"><td>Frame error in PX4’s attitude estimator, which turns feedback positive above 15.7 rad/s. After the fix, attitude error at 20 rad/s dropped from 68.2° to 0.76°. Hardware test above 15.7 rad/s still to do.</td><td><span class="tag ana">Analysis</span> <span class="tag sim">Simulation</span></td></tr>
+          <tr data-l="ana"><td>On a spinning body, a delay in the motors rotates the command direction by spin rate × delay; a motor lag also reduces its amplitude.</td><td><span class="tag ana">Analysis</span></td></tr>
+          <tr data-l="sim"><td>Adaptive lag compensation plus a motor-lag inverter holds hover at 29.5 rad/s with a 30 ms motor lag (5 of 5 runs). Neither element holds it alone.</td><td><span class="tag sim">Simulation</span></td></tr>
+          <tr data-l="hw"><td>New controller inside PX4 holds an 8.6 rad/s spin at about 1° RMS tilt error, with no saturation.</td><td><span class="tag hw">Hardware</span></td></tr>
+          <tr data-l="hw"><td>About 50 s at 14.6–15.5 rad/s with stick inputs; 1.1° RMS tilt error; motors under half their range.</td><td><span class="tag hw">Hardware</span></td></tr>
+          <tr data-l="hw ana"><td>A simple model predicted 15.2 rad/s for a motor-tilt build; it flew at 14.6–15.5.</td><td><span class="tag hw">Hardware</span> <span class="tag ana">Analysis</span></td></tr>
+          <tr data-l="hw"><td>Measured lag budget: 35 ms from torque command to acceleration, about 30 ms motor lag, 18.8 ms vision delay.</td><td><span class="tag hw">Hardware</span></td></tr>
+          <tr data-l="sim"><td>Second wing, designed for 15–16 rad/s: predicted to carry 53–60% of the weight at about the power of a plain quadrotor. CFD-based; not yet built.</td><td><span class="tag sim">Simulation</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Aniketh Parkala · Hyderabad, India · <a href="mailto:aniketh.parkala@research.iiit.ac.in">aniketh.parkala@research.iiit.ac.in</a></p>
+    <p>Numbers on this site come from my MS thesis (December 2026 draft).</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

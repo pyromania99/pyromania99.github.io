@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research · Aniketh Parkala</title>
+<meta name="description" content="The spinning-quadrotor work: stages, estimator fixes, and spin rates reached on hardware and in simulation.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Aniketh Parkala</a>
+    <a href="index.html">Home</a><a href="skills.html">Skills</a><a href="research.html" aria-current="page">Research</a><a href="interests.html">Interests</a><a href="evidence.html">Evidence</a><a href="next.html">Next</a><a href="about.html">About</a>
+    <button class="theme" id="theme" type="button" aria-label="Toggle light and dark theme">Theme</button>
+  </div>
+</header>
+
+<main id="main">
+<section id="ladder">
+  <div class="wrap">
+    <h1 class="page-title">How the work unfolded</h1>
+    <p class="sub">Two stages, separated by what I found in the estimator.</p>
+    <ol class="steps">
+      <li><span class="when">Aug 2025 – Feb 2026</span><h3>Show that spinning pays</h3><p>Co-rotating, tangentially canted rotors and passive radial wings. Hover flights on an unmodified PX4 cascade at 8–10 rad/s. Result: wings carry ~22% of the weight. Published at ICUAS 2026.</p></li>
+      <li><span class="when">Sep 2026</span><h3>Find what limits the spin</h3><p>Moved to Isaac Sim + Pegasus with PX4 in the loop and ground truth beside the estimate. The ceiling was the estimator, not the controller. Two EKF2 corrections.</p></li>
+      <li><span class="when">Sep – Oct 2026</span><h3>Compensate the lag, fly it</h3><p>A feedback-linearising controller with adaptive lag compensation, running inside PX4. Simulated to 29.5 rad/s. First hardware flights: 8.6 rad/s, then ~15 rad/s.</p></li>
+    </ol>
+
+    <figure>
+      <div class="chart">
+        <p class="legend"><span><i></i>Flown on hardware</span><span><i class="sim"></i>Simulation (PX4 in the loop)</span></p>
+        <svg viewBox="0 0 760 350" role="img" aria-labelledby="ct cd">
+          <title id="ct">Spin rate reached by each vehicle build, hardware versus simulation</title>
+          <desc id="cd">Horizontal bars of steady spin rate in radians per second. Hardware: wings on stock PX4 about 8 to 10; first flight of the new controller 2.7; two tilted motors 8.6; three tilted 10.2; four tilted 12.6; three at 10 degrees and one at 20 degrees about 15. Simulation: lag-compensated hover in simulation at 29.5. A dashed line marks 15.7, where the stock PX4 estimator fails.</desc>
+
+          <g class="axis">
+            <!-- x = 280 + 13.75 * rad/s -->
+            <line class="grid" x1="280" y1="20" x2="280" y2="312"/>
+            <line class="grid" x1="348.75" y1="20" x2="348.75" y2="312"/>
+            <line class="grid" x1="417.5" y1="20" x2="417.5" y2="312"/>
+            <line class="grid" x1="486.25" y1="20" x2="486.25" y2="312"/>
+            <line class="grid" x1="555" y1="20" x2="555" y2="312"/>
+            <line class="grid" x1="623.75" y1="20" x2="623.75" y2="312"/>
+            <line class="grid" x1="692.5" y1="20" x2="692.5" y2="312"/>
+            <text x="280" y="330" text-anchor="middle">0</text>
+            <text x="348.75" y="330" text-anchor="middle">5</text>
+            <text x="417.5" y="330" text-anchor="middle">10</text>
+            <text x="486.25" y="330" text-anchor="middle">15</text>
+            <text x="555" y="330" text-anchor="middle">20</text>
+            <text x="623.75" y="330" text-anchor="middle">25</text>
+            <text x="692.5" y="330" text-anchor="middle">30 rad/s</text>
+          </g>
+
+          <line class="ref" x1="495.9" y1="20" x2="495.9" y2="312"/>
+          <text x="502" y="16" font-size="11.5">15.7 rad/s: stock PX4 estimator fails</text>
+
+          <!-- rows: centre y = 44 + 40*i ; bar h = 16 -->
+          <g class="bar" tabindex="0"><title>Wings on, stock PX4 cascade: held 8 to 10 rad/s, degraded above (ICUAS stage, Feb 2026)</title>
+            <text class="rowlabel" x="268" y="42" text-anchor="end">ICUAS stage: wings, stock PX4</text>
+            <text class="rowlabel" x="268" y="57" text-anchor="end" font-size="11" opacity="0.85">8–10 rad/s band</text>
+            <rect class="bar-hw" x="280" y="36" width="137.5" height="16" rx="4"/>
+            <text class="val" x="424" y="49">8–10</text></g>
+
+          <g class="bar" tabindex="0"><title>First flight, new controller, 26 Sep 2026: about 2.7 rad/s, 34.5 s in ground effect</title>
+            <text class="rowlabel" x="268" y="82" text-anchor="end">First flight, new controller</text>
+            <text class="rowlabel" x="268" y="97" text-anchor="end" font-size="11" opacity="0.85">wingless · 26 Sep 2026</text>
+            <rect class="bar-hw" x="280" y="76" width="37.1" height="16" rx="4"/>
+            <text class="val" x="324" y="89">2.7</text></g>
+
+          <g class="bar" tabindex="0"><title>Two motors tilted 10 degrees: 8.6 rad/s, tilt error about 1 degree RMS</title>
+            <text class="rowlabel" x="268" y="122" text-anchor="end">2 motors tilted 10°</text>
+            <text class="rowlabel" x="268" y="137" text-anchor="end" font-size="11" opacity="0.85">new controller · 30 Sep 2026</text>
+            <rect class="bar-hw" x="280" y="116" width="118.3" height="16" rx="4"/>
+            <text class="val" x="405" y="129">8.6</text></g>
+
+          <g class="bar" tabindex="0"><title>Three motors tilted 10 degrees: 10.15 rad/s steady for 48 s</title>
+            <text class="rowlabel" x="268" y="162" text-anchor="end">3 motors tilted 10°</text>
+            <text class="rowlabel" x="268" y="177" text-anchor="end" font-size="11" opacity="0.85">new controller</text>
+            <rect class="bar-hw" x="280" y="156" width="139.6" height="16" rx="4"/>
+            <text class="val" x="426" y="169">10.2</text></g>
+
+          <g class="bar" tabindex="0"><title>Four motors tilted 10 degrees: 12.64 rad/s steady for 17.9 s</title>
+            <text class="rowlabel" x="268" y="202" text-anchor="end">4 motors tilted 10°</text>
+            <text class="rowlabel" x="268" y="217" text-anchor="end" font-size="11" opacity="0.85">new controller</text>
+            <rect class="bar-hw" x="280" y="196" width="173.8" height="16" rx="4"/>
+            <text class="val" x="460" y="209">12.6</text></g>
+
+          <g class="bar" tabindex="0"><title>Three motors at 10 degrees and one at 20 degrees: 14.6 to 15.5 rad/s for about 50 s with stick inputs, 1.1 degrees RMS tilt error. Model predicted 15.2.</title>
+            <text class="rowlabel" x="268" y="242" text-anchor="end">3 × 10° + 1 × 20°</text>
+            <text class="rowlabel" x="268" y="257" text-anchor="end" font-size="11" opacity="0.85">new controller · 7 Oct 2026 · ~50 s</text>
+            <rect class="bar-hw" x="280" y="236" width="206.3" height="16" rx="4"/>
+            <text class="val" x="520" y="249">≈15</text></g>
+
+          <g class="bar" tabindex="0"><title>Simulation: the lag-compensated controller holds hover at 29.5 rad/s with a 30 ms rotor lag, 5 of 5 runs</title>
+            <text class="rowlabel" x="268" y="282" text-anchor="end">Lag-compensated, 30 ms rotor lag</text>
+            <text class="rowlabel" x="268" y="297" text-anchor="end" font-size="11" opacity="0.85">simulation · hover · 5 of 5 runs</text>
+            <rect class="bar-sim" x="280" y="276" width="405.6" height="16" rx="4"/>
+            <text class="val" x="692" y="289">29.5</text></g>
+        </svg>
+        <details>
+          <summary>View as a table</summary>
+          <div class="tablewrap"><table>
+            <thead><tr><th>Build</th><th>Spin (rad/s)</th><th>Validation</th></tr></thead>
+            <tbody>
+              <tr><td>ICUAS stage, wings, stock PX4</td><td>8–10</td><td>Hardware</td></tr>
+              <tr><td>First flight, new controller</td><td>2.7</td><td>Hardware</td></tr>
+              <tr><td>2 motors tilted 10°</td><td>8.6</td><td>Hardware</td></tr>
+              <tr><td>3 motors tilted 10°</td><td>10.15</td><td>Hardware</td></tr>
+              <tr><td>4 motors tilted 10°</td><td>12.64</td><td>Hardware</td></tr>
+              <tr><td>3 × 10° + 1 × 20°</td><td>14.6–15.5 (model: 15.2)</td><td>Hardware</td></tr>
+              <tr><td>Lag-compensated, 30 ms rotor lag</td><td>29.5</td><td>Simulation</td></tr>
+            </tbody></table></div>
+        </details>
+      </div>
+      <figcaption><strong>Hardware and simulation do not yet overlap.</strong> The simulated result is at about twice the spin the hardware has reached, and on hardware the lag compensators have only been switched off. Closing that gap is the next experiment. Next hardware step: 20° tilt on all four motors, predicted at 18–23 rad/s.</figcaption>
+    </figure>
+  </div>
+</section>
+<section>
+  <div class="wrap">
+    <h2>Flights after the ICUAS paper</h2>
+    <p class="sub">Wingless vehicle with the new controller running inside PX4, flown indoors.</p>
+    <figure class="video full">
+      <video controls muted loop playsinline preload="metadata" poster="media/flight-6oct.jpg">
+        <source src="media/flight-6oct.mp4" type="video/mp4">
+      </video>
+      <figcaption>6 Oct 2026 · 39 s</figcaption>
+    </figure>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Aniketh Parkala · Hyderabad, India · <a href="mailto:aniketh.parkala@research.iiit.ac.in">aniketh.parkala@research.iiit.ac.in</a></p>
+    <p>Numbers on this site come from my MS thesis (December 2026 draft).</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
