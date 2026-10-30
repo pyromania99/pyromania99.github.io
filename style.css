@@ -207,7 +207,7 @@ main { min-height: 60vh; }
 @media (max-width: 860px) { .videos { grid-template-columns: 1fr; } .video.tall { max-width: 320px; } }
 
 /* home: hero image */
-.hero-bg { position: relative; background: var(--bg) url("media/hero.jpg") 0% 62% / 140% auto no-repeat; background-blend-mode: var(--hero-blend); }
+.hero-bg { position: relative; background: var(--bg) url("media/hero.jpg") 60% 45% / cover no-repeat; background-blend-mode: var(--hero-blend); }
 .hero-bg::before { content: ""; position: absolute; inset: 0;
   background: linear-gradient(90deg, var(--bg) 0%, color-mix(in srgb, var(--bg) var(--veil-1), transparent) 38%, color-mix(in srgb, var(--bg) var(--veil-2), transparent) 75%, color-mix(in srgb, var(--bg) var(--veil-3), transparent) 100%),
               linear-gradient(180deg, transparent 70%, var(--bg) 100%); }
