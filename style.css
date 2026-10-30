@@ -1,4 +1,6 @@
 /* Personal site: Aniketh Parkala. Plain CSS, no build step. */
+/* Wrapped in a layer so Tailwind utilities (loaded in each page's <head>) can override these rules. */
+@layer components {
 
 :root {
   color-scheme: light;
@@ -115,7 +117,7 @@ figure { margin: 0; }
 .chart .rowlabel { font-size: 12.5px; }
 .chart .val { font-size: 12.5px; font-weight: 600; fill: var(--ink); paint-order: stroke; stroke: var(--surface); stroke-width: 4px; }
 .chart .axis text { font-size: 11px; fill: var(--ink-3); }
-.chart .grid { stroke: var(--line); stroke-width: 1; }
+.chart .gridline { stroke: var(--line); stroke-width: 1; }
 .chart .ref { stroke: var(--ink-2); stroke-width: 1.5; stroke-dasharray: 5 4; }
 .chart .bar-hw { fill: var(--hw); } .chart .bar-sim { fill: var(--sim); }
 .chart .bar:hover, .chart .bar:focus { opacity: 0.8; }
@@ -256,3 +258,5 @@ main { min-height: 60vh; }
 .icard .row-link { margin-top: auto; align-self: flex-start; }
 .icard .fill { margin-top: 14px !important; }
 @media (max-width: 860px) { .cards { grid-template-columns: 1fr; } }
+
+} /* end @layer components */

@@ -6,6 +6,26 @@
 <title>Aniketh Parkala · Control built around the mechanism</title>
 <meta name="description" content="Aniketh Parkala, MS by Research in Robotics at IIIT Hyderabad. Spinning quadrotors, lag-aware control, PX4 estimation, and mechanism–controller co-design.">
 <link rel="stylesheet" href="style.css">
+<!-- Tailwind v4 (browser build): theme + utilities only, no Preflight reset, so style.css stays in charge. -->
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.13"></script>
+<style type="text/tailwindcss">
+  @layer theme, base, components, utilities;
+  @import "tailwindcss/theme.css" layer(theme);
+  @import "tailwindcss/utilities.css" layer(utilities);
+  /* Site tokens as Tailwind colours and fonts: bg-surface, text-ink-2, border-line, font-serif ... */
+  @theme inline {
+    --color-bg: var(--bg); --color-surface: var(--surface); --color-line: var(--line);
+    --color-ink: var(--ink); --color-ink-2: var(--ink-2); --color-ink-3: var(--ink-3);
+    --color-accent: var(--accent); --color-accent-ink: var(--accent-ink);
+    --color-hw: var(--hw); --color-sim: var(--sim); --color-ana: var(--ana); --color-pub: var(--pub);
+    --font-serif: var(--serif); --font-sans: var(--sans); --font-mono: var(--mono);
+  }
+  /* dark: follows the Theme button as well as the OS setting */
+  @custom-variant dark {
+    @media (prefers-color-scheme: dark) { &:where(:root:not([data-theme="light"]) *) { @slot; } }
+    &:where(:root[data-theme="dark"] *) { @slot; }
+  }
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -75,9 +95,9 @@
     </article>
     <article class="row row-center">
       <div class="row-text">
-        <p class="row-label">Method</p>
+        <p class="row-label">Direction</p>
         <h2 class="row-title">Approach</h2>
-        <p>Co-design of the mechanism and its control, so the platform and the controller shape each other. Nonlinear control with a classical mindset, applied to interpreting and designing RL-based controllers with a grounded understanding.</p>
+        <p>I want to design the mechanism and its control together, so the platform and the controller shape each other. My starting point is nonlinear control with a classical mindset, which I want to apply to interpreting and designing RL-based controllers with a grounded understanding.</p>
         <a class="row-link" href="skills.html">Technical skills →</a>
       </div>
     </article>

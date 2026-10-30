@@ -6,6 +6,26 @@
 <title>Next · Aniketh Parkala</title>
 <meta name="description" content="What is not yet shown, and where the work is heading.">
 <link rel="stylesheet" href="style.css">
+<!-- Tailwind v4 (browser build): theme + utilities only, no Preflight reset, so style.css stays in charge. -->
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.13"></script>
+<style type="text/tailwindcss">
+  @layer theme, base, components, utilities;
+  @import "tailwindcss/theme.css" layer(theme);
+  @import "tailwindcss/utilities.css" layer(utilities);
+  /* Site tokens as Tailwind colours and fonts: bg-surface, text-ink-2, border-line, font-serif ... */
+  @theme inline {
+    --color-bg: var(--bg); --color-surface: var(--surface); --color-line: var(--line);
+    --color-ink: var(--ink); --color-ink-2: var(--ink-2); --color-ink-3: var(--ink-3);
+    --color-accent: var(--accent); --color-accent-ink: var(--accent-ink);
+    --color-hw: var(--hw); --color-sim: var(--sim); --color-ana: var(--ana); --color-pub: var(--pub);
+    --font-serif: var(--serif); --font-sans: var(--sans); --font-mono: var(--mono);
+  }
+  /* dark: follows the Theme button as well as the OS setting */
+  @custom-variant dark {
+    @media (prefers-color-scheme: dark) { &:where(:root:not([data-theme="light"]) *) { @slot; } }
+    &:where(:root[data-theme="dark"] *) { @slot; }
+  }
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
