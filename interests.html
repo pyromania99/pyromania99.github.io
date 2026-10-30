@@ -52,6 +52,62 @@
         
         <p class="fill">Your note: why this matters to my work.</p>
       </article>
+      <article class="icard">
+        <p class="row-label">Robot</p>
+        <h2>Fingers as Legs</h2>
+        <p>Kazemipour, Zheng &amp; Katzschmann, 2026. An anthropomorphic hand that walks on its own fingers: it crawls, steers and recovers from falls untethered, and while carrying its weight it still types keyboard commands and pushes objects to targets, with no separate locomotion mechanism.</p>
+        <p><strong>For my limb:</strong> one limb reused for locomotion and manipulation is exactly the question I start from.</p>
+        <a class="row-link" href="https://arxiv.org/abs/2609.17172">Read the paper ↗</a>
+      </article>
+      <article class="icard">
+        <p class="row-label">Design</p>
+        <h2>Geometry for strength</h2>
+        <p>Childs &amp; Rucker, 2021. A 3D-printed, rhombus-patterned backbone with converging tendon routing that raises a continuum robot’s load capacity sharply while it can still bend.</p>
+        <p><strong>For my limb:</strong> geometry can supply a stiffening floor, and its deflection depends on how it is loaded, which is the assumption that breaks existing stability proofs.</p>
+        <a class="row-link" href="https://doi.org/10.3389/frobt.2021.629871">Read the paper ↗</a>
+      </article>
+      <article class="icard">
+        <p class="row-label">Material</p>
+        <h2>Lattice musculoskeletal robots</h2>
+        <p>Guan, Dai, Cheng &amp; Hughes, 2025. One printed material spans tissue-like compliance to bone-like load bearing purely through lattice geometry, programmed cell by cell.</p>
+        <p><strong>For my limb:</strong> geometry-only stiffness of this kind is what I want the design search to explore.</p>
+        <a class="row-link" href="https://doi.org/10.1126/sciadv.adu9856">Read the paper ↗</a>
+      </article>
+      <article class="icard">
+        <p class="row-label">Analysis</p>
+        <h2>Active softening</h2>
+        <p>Peyron &amp; Burgner-Kahrs, 2024. A stability analysis of tendon-driven continuum robots, showing that tendon actuation can soften a backbone toward buckling.</p>
+        <p><strong>For my limb:</strong> stiffness becomes an input-dependent quantity, an active knob on top of the passive floor that geometry provides.</p>
+        <a class="row-link" href="https://doi.org/10.1109/TRO.2023.3324571">Read the paper ↗</a>
+      </article>
+      <article class="icard">
+        <p class="row-label">Proof</p>
+        <h2>Stable control of a soft arm</h2>
+        <p>Della Santina, Katzschmann, Bicchi &amp; Rus, 2020. Model-based control of a planar soft arm with a Lyapunov stability proof that does not cancel its softness.</p>
+        <p><strong>For my limb:</strong> the proof assumes a constant stiffness. Reproducing it, and finding where a load-dependent stiffness breaks it, is my first step.</p>
+        <a class="row-link" href="https://doi.org/10.1177/0278364919897292">Read the paper ↗</a>
+      </article>
+      <article class="icard">
+        <p class="row-label">Control</p>
+        <h2>Low-stiffness soft robots</h2>
+        <p>Nair, Caradonna, Mathew, Renda, Della Santina &amp; Feliu-Talegon, 2026. Real-time nonlinear MPC on a variable-strain model stabilises soft robots at unstable equilibria, where gravity dominates elasticity.</p>
+        <p><strong>For my limb:</strong> control guarantees for soft robots hold only above a stiffness threshold, and a limb that stiffens under load crosses it as its payload changes.</p>
+        <a class="row-link" href="https://arxiv.org/abs/2610.17295">Read the paper ↗</a>
+      </article>
+      <article class="icard">
+        <p class="row-label">Control</p>
+        <h2>Variable impedance stability</h2>
+        <p>Kronander &amp; Billard, 2016. Stability conditions for a robot whose controller varies its stiffness and damping over time.</p>
+        <p><strong>For my limb:</strong> this covers stiffness raised <em>for</em> load by the controller; stiffness set by the load itself is the case I have not found analysed.</p>
+        <a class="row-link" href="https://doi.org/10.1109/TRO.2016.2593492">Read the paper ↗</a>
+      </article>
+      <article class="icard">
+        <p class="row-label">Learning</p>
+        <h2>Stable by construction</h2>
+        <p>Khansari-Zadeh &amp; Billard, 2011 (SEDS). Learns a dynamical-systems controller from demonstrations under constraints that guarantee stability.</p>
+        <p><strong>For my limb:</strong> a certified controller class like this lets a design search explore only designs whose controllers can be certified.</p>
+        <a class="row-link" href="https://doi.org/10.1109/TRO.2011.2159412">Read the paper ↗</a>
+      </article>
     </div>
   </div>
 </section>
